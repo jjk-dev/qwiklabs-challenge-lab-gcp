@@ -18,14 +18,22 @@ Some standards you should follow:
 
 ### Task 1: Create a bucket
 You need to create a bucket for the storage of the photographs.
+```
+```
 
 ### Task 2: Create a Pub/Sub topic
 Create a Pub/Sub topic for the Cloud Function to send messages.
+```
+```
 
 ### Task 3: Create the Cloud Function
+```
+```
 
 ### Task 4: Remove the previous cloud engineer
 You will see that there are two users, one is your account (with the role of Owner) and the other is the previous cloud engineer (with the role of Viewer). We like to keep our security tight, so please remove the previous cloud engineer’s access to the project.
+```
+```
 
 ## Congratulations!
 
