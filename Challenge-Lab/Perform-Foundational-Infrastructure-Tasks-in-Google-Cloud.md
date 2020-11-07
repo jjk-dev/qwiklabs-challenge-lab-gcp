@@ -164,3 +164,4 @@ Remove Project Viewer access for **Username 2** by clicking the trashcan icon ne
 
 ### Finish your Quest
 This self-paced lab is part of the Qwiklabs [Baseline: Infrastructure](https://google.qwiklabs.com/quests/33) Quest. A Quest is a series of related labs that form a learning path. Completing this Quest earns you the badge above, to recognize your achievement. You can make your badge public and link to them in your online resume or social media account. Enroll in a Quest and get immediate completion credit if you've taken this lab. [See other available Qwiklabs Quests.](https://google.qwiklabs.com/catalog)
+
