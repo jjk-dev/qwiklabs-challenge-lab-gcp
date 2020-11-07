@@ -29,13 +29,13 @@ gcloud pubsub topics create [YOUR-TOPIC-NAME]
 ```
 
 ### Task 3: Create the Cloud Function
-Create a Cloud Function that executes every time an object is created in the bucket you created in task 1. The function is written in Node.js 10. Make sure you set the **Function to execute** to **thumbnail**.
-
-In line 15 of index.js replace the text **REPLACE_WITH_YOUR_TOPIC** with the topic you created in task 2.
+Create a Cloud Function that executes every time an object is created in the bucket you created in task 1. 
 
 ```
 nano index.js
 ```
+
+In line 15 of index.js replace the text **REPLACE_WITH_YOUR_TOPIC** with the topic you created in task 2.
 
 **index.js:**
 ```
@@ -133,7 +133,9 @@ nano package.json
   }
 }
 ```
+Exit nano (Ctrl+x) and save (Y) the file.
 
+The function is written in Node.js 10. Make sure you set the **Function to execute** to **thumbnail**.
 ```
 gcloud functions deploy thumbnail \
 --stage-bucket [YOUR-BUCKET-NAME] \
@@ -141,6 +143,7 @@ gcloud functions deploy thumbnail \
 --trigger-event google.storage.object.finalize \
 --runtime nodejs10
 ```
+
 You must upload one JPG or PNG image into the bucket, we will verify the thumbnail was created. Use any JPG or PNG image, or use [this image](https://storage.googleapis.com/cloud-training/gsp315/map.jpg); download the image to your machine and then upload that file to your bucket. You will see a thumbnail image appear shortly afterwards.
 
 ### Task 4: Remove the previous cloud engineer
