@@ -1,5 +1,4 @@
-# Perform Foundational Infrastructure Tasks in Google Cloud: Challenge Lab
-- [Qwiklabs Link](https://www.qwiklabs.com/focuses/10379?parent=catalog)
+# Perform Foundational Infrastructure Tasks in Google Cloud: [Challenge Lab](https://www.qwiklabs.com/focuses/10379?parent=catalog)
 
 ## Challenge scenario
 You are now asked to help a newly formed development team with some of their initial work on a new project around storing and organizing photographs, called memories. You have been asked to assist the memories team with initial configuration for their application development environment; you receive the following request to complete the following tasks:
