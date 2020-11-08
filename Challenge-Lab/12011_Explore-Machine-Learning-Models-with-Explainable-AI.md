@@ -1,30 +1,37 @@
 # Explore Machine Learning Models with Explainable AI: [Challenge Lab](https://www.qwiklabs.com/focuses/12011?parent=catalog)
 
 ## Challenge scenario
-- Start a JupyterLab Notebook Instance
-- Download the Challenge Notebook
-- Build and Train your Models
-- Deploy Model to AI Platform
+- Launching an AI Platform Notebook
+- Downloading and exploring a sample dataset
+- Building and training two different TensorFlow models
+- Deploying models to the Cloud AI Platform
+- Using the What-If Tool to compare the models
 
 
-### Task 1: Start a JupyterLab Notebook Instance
-
-```
-
-```
-
-### Task 2: Download the Challenge Notebook
+### Task 1: Launching an AI Platform Notebook
 
 ```
 
 ```
 
-### Task 3: Build and Train your Models
+### Task 2: Downloading and exploring a sample dataset
+
+```
+
+```
+
+### Task 3: Building and training two different TensorFlow models
 ```
 
 ```
 
-### Task 4: Deploy Model to AI Platform
+### Task 4: Deploying models to the Cloud AI Platform
+```
+
+```
+
+
+### Task 5: Using the What-If Tool to compare the models
 ```
 
 ```
