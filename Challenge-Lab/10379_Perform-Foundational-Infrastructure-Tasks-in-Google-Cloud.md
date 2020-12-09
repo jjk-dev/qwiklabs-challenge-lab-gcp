@@ -151,11 +151,11 @@ You will see that there are two users, one is your account (with the role of Own
 Navigate to the IAM & Admin console, select **Navigation menu > IAM & Admin > IAM.**
 Search through the table to find **Username 2** and examine the roles they are granted. Then click the pencil icon next to **Username 2**.
 
-![Badge Image](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Perform-Foundational-IAM-1.png)
+![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Perform-Foundational-IAM-1.png)
 
 Remove Project Viewer access for **Username 2** by clicking the trashcan icon next to the role name. Then click **SAVE.**
 
-![Badge Image](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Perform-Foundational-IAM-2.png)
+![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Perform-Foundational-IAM-2.png)
 
 
 ## Congratulations!
