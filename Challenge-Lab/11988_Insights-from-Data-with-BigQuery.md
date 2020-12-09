@@ -153,7 +153,7 @@ Create a Datastudio report that plots the following for the United States:
 ```
 
 ## Congratulations!
-![Badge Image](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Perform-Foundational-Infrastructure-Tasks-in-Google-Cloud.png) ![Badge_cl Image](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Perform-Foundational-Infrastructure-Tasks-in-Google-Cloud-cl.png)
+![Badge Image]() ![Badge_cl Image]()
 
 ### Finish your Quest
 This self-paced lab is part of the Qwiklabs [Insights from Data with BigQuery](https://google.qwiklabs.com/quests/123) Quest. A Quest is a series of related labs that form a learning path. Completing this Quest earns you the badge above, to recognize your achievement. You can make your badge public and link to them in your online resume or social media account. [Enroll in this Quest](https://google.qwiklabs.com/quests/123/enroll) and get immediate completion credit if you've taken this lab. [See other available Qwiklabs Quests.](https://google.qwiklabs.com/catalog)
