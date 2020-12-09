@@ -1,13 +1,13 @@
 # Build and Optimize Data Warehouses with BigQuery: [Challenge Lab](https://www.qwiklabs.com/focuses/14341?parent=catalog)
 
 ## Challenge scenario
-You are now asked to help a newly formed development team with some of
+You 
 
-- Create a bucket for storing the photographs.
+- Create
 
 
 Some standards you should follow:
-- Create all resources in the **us-east1** region and **us-east1-b** zone, unless otherwise directed.
+- Create
 
 
 ### Task 1: Create a table partitioned by date
