@@ -54,6 +54,7 @@ bq query --use_legacy_sql=false \
 
 ### Task 2: Add new columns to your table
 Update your table to add new columns to your table with the appropriate data types to ensure alignment with the specification provided to you.
+
 ```
  ALTER TABLE covid.partition_by_day
  ADD COLUMN population INT64,
@@ -91,8 +92,15 @@ Populate the mobility record in your table with data from the [Google COVID 19 M
 
 ```
 INSERT covid.partition_by_day ()
-SELECT *
-FROM `bigquery-public-data.covid19_google_mobility.mobility_report`
+ SELECT country_region, date, 
+      AVG(retail_and_recreation_percent_change_from_baseline) as avg_retail,
+      AVG(grocery_and_pharmacy_percent_change_from_baseline)  as avg_grocery,
+      AVG(parks_percent_change_from_baseline) as avg_parks,
+      AVG(transit_stations_percent_change_from_baseline) as avg_transit,
+      AVG( workplaces_percent_change_from_baseline ) as avg_workplace,
+      AVG( residential_percent_change_from_baseline)  as avg_residential
+      FROM `bigquery-public-data.covid19_google_mobility.mobility_report`
+      GROUP BY country_region, date
 ```
 
 ### Task 6: Query missing data in population & country_area columns
