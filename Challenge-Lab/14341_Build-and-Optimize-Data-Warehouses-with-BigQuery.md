@@ -1,17 +1,21 @@
 # Build and Optimize Data Warehouses with BigQuery: [Challenge Lab](https://www.qwiklabs.com/focuses/14341?parent=catalog)
 
 ## Challenge scenario
-You 
+You are part of an international public health organization which is tasked with developing a machine learning model to predict the daily case count for countries during the Covid-19 pandemic. As a junior member of the Data Science team you've been assigned to use your data warehousing skills to develop a table containing the features for the machine learning model. You receive the following request to complete the following tasks:
 
-- Create
-
+- Create a new dataset and table
+- Add columns for population, country_area and a record column (named mobility) 
+- Modify SQL template before populate the population data 
+- Extract average values for the the six component fields that comprise the mobility 
+- Run a query that returns a combined list of the DISTINCT countries that do not have any population data and countries which do not have country area information, ordered by country name
 
 Some standards you should follow:
-- Create
-
+- Aggregates all daily records for each country into a single average for each mobility record element
+- When performing the JOINs between various tables, you will need to use either the **alpha_3_code column**, or the **country_name** column.
+- If a country has neither population nor country area it should appear twice.
 
 ### Task 1: Create a table partitioned by date
-Create a new dataset and create a table in that dataset partitioned by date, with an expiry of 90 days. The table should initially use the schema defined for the **oxford_policy_tracker** table in the [COVID 19 Government Response public dataset](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=covid19_govt_response&page=dataset) .
+Create a new dataset and create a table in that dataset partitioned by date, with an expiry of 90 days. The table should initially use the schema defined for the **oxford_policy_tracker** table in the [COVID 19 Government Response public dataset](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=covid19_govt_response&page=dataset).
 
 You must also populate the table with the data from the source table for all countries except the United Kingdom **(GBR)** and the United States **(USA)**.
 ```
