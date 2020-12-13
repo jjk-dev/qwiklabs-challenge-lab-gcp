@@ -21,7 +21,32 @@ Create a new dataset and create a table in that dataset partitioned by date, wit
 
 You must also populate the table with the data from the source table for all countries except the United Kingdom **(GBR)** and the United States **(USA)**.
 ```
+bq ls bigquery-public-data:covid19_govt_response
+```
+Output:
+```
+         tableId          Type    
+ ----------------------- ------- 
+  oxford_policy_tracker   TABLE
+```
+```
+bq mk covid
+bq ls
+```
+```
+bq query --use_legacy_sql=false \
+'
+ CREATE OR REPLACE TABLE covid.partition_by_day
+ PARTITION BY date_formatted
+ OPTIONS(
+   partition_expiration_days=90
+ ) AS
 
+ SELECT DISTINCT
+ PARSE_DATE("%Y%m%d", date) AS date_formatted, 
+ FROM `bigquery-public-data.covid19_govt_response.oxford_policy_tracker`
+ WHERE alpha_3_code NOT IN ('GBR', 'USA')
+ '
 ```
 
 ### Task 2: Add new columns to your table
