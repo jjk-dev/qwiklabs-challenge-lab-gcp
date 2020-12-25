@@ -130,4 +130,4 @@ ORDER BY country_name ASC
 
 
 ## Congratulations!
-![Badge Image]() ![Badge_cl Image]()
+<img src="https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/BigQuery-for-Data-Warehousing.png" height="150" /> <img src="https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Build-and-Optimize-Data-Warehouses-with-BigQuery.png" height="150" />
