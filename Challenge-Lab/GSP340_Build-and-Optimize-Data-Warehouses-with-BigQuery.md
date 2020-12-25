@@ -21,7 +21,7 @@ Create a new dataset and create a table in that dataset partitioned by date, wit
 
 You must also populate the table with the data from the source table for all countries except the United Kingdom **(GBR)** and the United States **(USA)**.
 
-Navigate to the BigQuery console, select **Navigation menu > BigQuery**. Select **username** then click **CREATE DATASET** button.
+Navigate to the BigQuery console, select **Navigation menu > BigQuery**. Select **GCP Project ID** then click **CREATE DATASET** button.
 
 ![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Build-and-Optimize-BigQuery-1.png)
 
