@@ -20,26 +20,17 @@ Some standards and tips you should follow:
 Create a new dataset and create a table in that dataset partitioned by date, with an expiry of 90 days. The table should initially use the schema defined for the **oxford_policy_tracker** table in the [COVID 19 Government Response public dataset](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=covid19_govt_response&page=dataset).
 
 You must also populate the table with the data from the source table for all countries except the United Kingdom **(GBR)** and the United States **(USA)**.
-```
-bq ls bigquery-public-data:covid19_govt_response
-```
-Output:
-```
-         tableId          Type    
- ----------------------- ------- 
-  oxford_policy_tracker   TABLE
-```
-```
-bq mk oxford
-bq ls
-```
-```
-bq query --use_legacy_sql=false \
-'
 
- '
-```
+Navigate to the BigQuery console, select **Navigation menu > BigQuery**. Select **username** then click **CREATE DATASET** button.
+![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Build-and-Optimize-BigQuery-1.png)
 
+Write **covid** in the Dataset ID field. And click **Create dataset** button.
+![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Build-and-Optimize-BigQuery-2.png)
+
+You can see **covid dataset** is created. Now put SQL query on the blank field.
+![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Build-and-Optimize-BigQuery-3.png)
+
+SQL Query:
 ```
  CREATE OR REPLACE TABLE covid.oxford
  PARTITION BY date
@@ -55,6 +46,7 @@ bq query --use_legacy_sql=false \
 ### Task 2: Add new columns to your table
 Update your table to add new columns to your table with the appropriate data types to ensure alignment with the specification provided to you.
 
+SQL Query:
 ```
  ALTER TABLE covid.oxford
  ADD COLUMN population INT64,
@@ -72,6 +64,7 @@ Update your table to add new columns to your table with the appropriate data typ
 ### Task 3: Add country population data to the population column
 Add the country population data to the population column in your table with **covid_19_geographic_distribution_worldwide** table data from the [European Center for Disease Control COVID 19 public dataset](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=covid19_ecdc&page=dataset) table.
 
+SQL Query:
 ```
 UPDATE covid.oxford A
 SET A.population = B.pop_data_2019
@@ -82,6 +75,7 @@ WHERE A.date = B.date AND A.alpha_3_code = B.country_territory_code
 ### Task 4: Add country area data to the country_area column
 Add the country area data to the country_area column in your table with **country_names_area** table data from the [Census Bureau International public dataset](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=census_bureau_international&page=dataset).
 
+SQL Query:
 ```
 UPDATE covid.oxford A
 SET A.country_area = B.country_area
@@ -92,6 +86,7 @@ WHERE A.country_name = B.country_name
 ### Task 5: Populate the mobility record data
 Populate the mobility record in your table with data from the [Google COVID 19 Mobility public dataset](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=covid19_govt_response&page=dataset).
 
+SQL Query:
 ```
 UPDATE covid.oxford A
 SET A.mobility = STRUCT<
@@ -101,7 +96,7 @@ SET A.mobility = STRUCT<
   avg_transit FLOAT64,
   avg_workplace FLOAT64,
   avg_residential FLOAT64>
-  (B.avg_retail, B.avg_grocery, B.avg_transit, B.avg_workplace, B.avg_residential)
+  (B.avg_retail, B.avg_grocery, B.avg_parks, B.avg_transit, B.avg_workplace, B.avg_residential)
 FROM (SELECT country_region, date, 
       AVG(retail_and_recreation_percent_change_from_baseline) as avg_retail,
       AVG(grocery_and_pharmacy_percent_change_from_baseline) as avg_grocery,
@@ -117,6 +112,7 @@ WHERE A.country_name = B.country_region AND A.date = B.date
 ### Task 6: Query missing data in population & country_area columns
 Run a query to find the missing countries in the population and country_area data. The query should list countries that do not have any population data and countries that do not have country area information, ordered by country name. If a country has neither population or country area it must appear twice.
 
+SQL Query:
 ```
 SELECT DISTINCT country_name
 FROM covid.oxford
