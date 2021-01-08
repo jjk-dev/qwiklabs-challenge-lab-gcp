@@ -27,9 +27,7 @@ Create VM instance.
 ```
 gcloud compute instances create nucleus-jumphost \
   --machine-type f1-micro \
-  --zone us-east1-b \
-  --machine-family debian-9 \
-  --image-project debain-cloud
+  --zone us-east1-b
 ```
 
 ### Task 2: Create a Kubernetes service cluster
@@ -55,11 +53,6 @@ Deploy an application to the cluser.
 kubectl create deployment nucleus-server --image=gcr.io/google-samples/hello-app:2.0
 kubectl expose deployment nucleus-server --type=LoadBalancer --port 8080
 kubectl get service
-```
-
-To view the application from your web browser, open a new tab and enter the following address:
-```
-http://[EXTERNAL-IP]:8080
 ```
 
 ### Task 3: Set up an HTTP load balancer
@@ -113,7 +106,7 @@ gcloud compute forwarding-rules list
 
 Create a health check.
 ```
-gcloud compute http-health-checks create basic-check
+gcloud compute http-health-checks create http-basic-check
 
 gcloud compute instance-groups managed \
   set-named-ports nginx-group \
@@ -123,14 +116,13 @@ gcloud compute instance-groups managed \
 Create a backend service, and attach the managed instance group.
 ```
 gcloud compute backend-services create nginx-backend \
-  --protocol HTTP --http-health-checks basic-check \
+  --protocol HTTP --http-health-checks http-basic-check \
   --global
   
 gcloud compute backend-services add-backend nginx-backend \
   --instance-group nginx-group \
   --instance-group-zone us-east1-b \
   --global
-
 ```
 
 Create a URL map, and target the HTTP proxy to route requests to your URL map.
@@ -147,14 +139,14 @@ Create a forwarding rule.
 gcloud compute forwarding-rules create http-rule \
   --global \
   --target-http-proxy http-lb-proxy \
-  --port 80
+  --ports 80
   
 gcloud compute forwarding-rules list
 ```
 
 
 ## Congratulations!
-![Badge Image](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Perform-Foundational-Infrastructure-Tasks-in-Google-Cloud.png) ![Badge_cl Image](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Perform-Foundational-Infrastructure-Tasks-in-Google-Cloud-cl.png)
+<img src="https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Create-and-Manage-Cloud-Resources.png" height="150" />
 
 ### Finish your Quest
 This self-paced lab is part of the [Create and Manage Cloud Resources](https://google.qwiklabs.com/quests/120) Quest. A Quest is a series of related labs that form a learning path. Completing this Quest earns you the badge above to recognize your achievement. You can make your badge (or badges) public and link to them in your online resume or social media account. Enroll in a Quest and get immediate completion credit for taking this lab. [See other available Qwiklabs Quests.](https://google.qwiklabs.com/catalog)
