@@ -137,10 +137,10 @@ Exit nano (Ctrl+x) and save (Y) the file.
 The function is written in Node.js 10. Make sure you set the **Function to execute** to **thumbnail**.
 ```
 gcloud functions deploy thumbnail \
---stage-bucket [YOUR-BUCKET-NAME] \
---trigger-resource [YOUR-BUCKET-NAME] \
---trigger-event google.storage.object.finalize \
---runtime nodejs10
+  --stage-bucket [YOUR-BUCKET-NAME] \
+  --trigger-resource [YOUR-BUCKET-NAME] \
+  --trigger-event google.storage.object.finalize \
+  --runtime nodejs10
 ```
 
 You must upload one JPG or PNG image into the bucket, we will verify the thumbnail was created. Use any JPG or PNG image, or use [this image](https://storage.googleapis.com/cloud-training/gsp315/map.jpg); download the image to your machine and then upload that file to your bucket. You will see a thumbnail image appear shortly afterwards.
