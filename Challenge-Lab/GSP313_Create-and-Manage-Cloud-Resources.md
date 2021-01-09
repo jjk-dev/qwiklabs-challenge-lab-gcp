@@ -5,7 +5,7 @@ You have started a new role as a Junior Cloud Engineer for Jooli, Inc. You are e
 
 You are expected to have the skills and knowledge for these tasks, so step-by-step guides are not provided.
 
-Some Jooli, Inc. standards you should follow:
+You receive the following request to complete the following tasks:
 - Create an instance
 - Create a 3-node Kubernetes cluster and run a simple service
 - Create an HTTP(s) load balancer in front of two web servers
