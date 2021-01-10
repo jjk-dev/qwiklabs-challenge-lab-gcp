@@ -95,5 +95,6 @@ Use Google Video Intelligence and detect all text on the video `gs://spls/gsp154
 ![Badge Image](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Perform-Foundational-Infrastructure-Tasks-in-Google-Cloud.png) ![Badge_cl Image](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Perform-Foundational-Infrastructure-Tasks-in-Google-Cloud-cl.png)
 
 ### Finish your Quest
+This self-paced lab is part of the Qwiklabs [Perform Foundational Data, ML, and AI Tasks in Google Cloud](https://google.qwiklabs.com/quests/117) Quest. A Quest is a series of related labs that form a learning path. Completing this Quest earns you the badge above, to recognize your achievement. You can make your badge public and link to them in your online resume or social media account. Enroll in this Quest and get immediate completion credit if you've taken this lab. [See other available Qwiklabs Quests](https://google.qwiklabs.com/catalog).
 
-
+This skill badge quest is part of Google Cloud’s [Data Analyst](https://cloud.google.com/training/data-ml#data-analyst-learning-path) and [Data Engineer](https://cloud.google.com/training/data-ml#data-engineer-learning-path) learning paths. Continue your learning journey by enrolling in the [Engineer Data with Google Cloud](https://google.qwiklabs.com/quests/132) quest.
