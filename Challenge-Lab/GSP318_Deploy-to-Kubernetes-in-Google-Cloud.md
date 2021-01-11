@@ -60,7 +60,7 @@ docker run -p 8080:8080 --name valkyrie-app valkyrie-app:v0.0.1 &
 ```
 
 When your container is running you will see the page by **Web Preview**.
-![screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Deploy-to-Kubernetes-in-Google-Cloud.png-1.png)
+![screenshot](https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Deploy-to-Kubernetes-in-Google-Cloud.png-1.png)
 
 Once you have your container running, and before clicking Check my progress, run step2.sh to perform the local check of your work.
 ```
@@ -172,7 +172,7 @@ When you are ready, manually trigger a build (the initial build will take some t
 
 
 ## Congratulations!
-<img src="https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Deploy-to-Kubernetes-in-Google-Cloud.png" height="150" />
+<img src="https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Deploy-to-Kubernetes-in-Google-Cloud.png" height="150" />
 
 ### Finish your Quest
 This self-paced lab is part of the Qwiklabs [Kubernetes in Google Cloud](https://google.qwiklabs.com/quests/29) Quest. A Quest is a series of related labs that form a learning path. Completing this Quest earns you the badge above, to recognize your achievement. You can make your badge public and link to them in your online resume or social media account. Enroll in this Quest and get immediate completion credit if you've taken this lab. [See other available Qwiklabs Quests](https://google.qwiklabs.com/catalog).
