@@ -23,15 +23,15 @@ You must also populate the table with the data from the source table for all cou
 
 Navigate to the BigQuery console, select **Navigation menu > BigQuery**. Select **GCP Project ID** then click **CREATE DATASET** button.
 
-![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Build-and-Optimize-BigQuery-1.png)
+![Screenshot](https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Build-and-Optimize-BigQuery-1.png)
 
 Write **covid** in the Dataset ID field. And click **Create dataset** button.
 
-![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Build-and-Optimize-BigQuery-2.png)
+![Screenshot](https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Build-and-Optimize-BigQuery-2.png)
 
 You can see **covid dataset** is created. Now put SQL query on the blank field.
 
-![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Build-and-Optimize-BigQuery-3.png)
+![Screenshot](https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Build-and-Optimize-BigQuery-3.png)
 
 SQL Query:
 ```
@@ -129,4 +129,4 @@ ORDER BY country_name ASC
 
 
 ## Congratulations!
-<img src="https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/BigQuery-for-Data-Warehousing.png" height="150" /> <img src="https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Build-and-Optimize-Data-Warehouses-with-BigQuery.png" height="150" />
+<img src="https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/BigQuery-for-Data-Warehousing.png" height="150" /> <img src="https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Build-and-Optimize-Data-Warehouses-with-BigQuery.png" height="150" />
