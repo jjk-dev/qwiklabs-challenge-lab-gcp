@@ -159,7 +159,7 @@ Use git to:
 - Add all the changes then commit those changes to the master branch.
 - Push the changes back to the repository.
 ```
-git config --global user.email "you@email.com"
+git config --global user.email "$(gcloud config get-value core/account)"
 git config --global user.name "student"
 git add .
 git commit -m "green to orange"
