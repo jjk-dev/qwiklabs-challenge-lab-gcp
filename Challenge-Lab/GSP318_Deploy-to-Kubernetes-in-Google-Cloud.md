@@ -55,6 +55,7 @@ cd ~/marking
 ### Task 2: Test the created Docker image
 Launch a container using the image **valkyrie-app:v0.0.1**. You need to map the host’s port 8080 to port 8080 on the container. Add & to the end of the command to cause the container to run in the background.
 ```
+cd valkyrie-app
 docker run -p 8080:8080 --name valkyrie-app valkyrie-app:v0.0.1 &
 ```
 
@@ -70,6 +71,7 @@ cd ~/marking
 ### Task 3: Push the Docker image in the Container Repository
 Push the Docker image **valkyrie-app:v0.0.1** into the Container Registry. Make sure you re-tag the container to **gcr.io/YOUR_PROJECT/valkyrie-app:v0.0.1**.
 ```
+cd valkyrie-app
 docker tag valkyrie-app:v0.0.1 gcr.io/$PROJECT/valkyrie-app:v0.0.1
 docker images
 docker push gcr.io/$PROJECT/valkyrie-app:v0.0.1
@@ -78,8 +80,7 @@ docker push gcr.io/$PROJECT/valkyrie-app:v0.0.1
 ### Task 4: Create and expose a deployment in Kubernetes
 Kurt created the **deployment.yaml** and **service.yaml** to deploy your new container image to a Kubernetes cluster (called valkyrie-dev). The two files are in **valkyrie-app/k8s**. Remember you need to get the Kubernetes credentials before you deploy the image onto the Kubernetes cluster.
 ```
-cd k8s
-gcloud container clusters get-credentials valkyrie-app --region us-east1
+gcloud container clusters get-credentials valkyrie-dev --zone us-east1-d
 ```
 
 With below code, now replace **IMAGE_HERE** with `gcr.io/$PROJECT/valkyrie-app:v0.0.1`.
@@ -89,14 +90,13 @@ sed -i s#IMAGE_HERE#gcr.io/$PROJECT/valkyrie-app:v0.0.1#g k8s/deployment.yaml
 
 Click **ESC button** and enter `:wq!` . Before you create the deployments make sure you check the **deployment.yaml** and **service.yaml** files.
 ```
-kubectl create -f deployment.yaml
-kubectl create -f service.yaml
+kubectl create -f k8s/deployment.yaml
+kubectl create -f k8s/service.yaml
 ```
 
 ### Task 5: Update the deployment with a new version of valkyrie-app
 Before deploying the new code, increase the **replicas from 1 to 3** to ensure you don't cause an outage. Kurt made changes to the source code (he put the changes in a branch called **kurt-dev**). You need to merge **kurt-dev into master** (you should use git merge origin/kurt-dev).
 ```
-cd ..
 git merge origin/kurt-dev
 kubectl edit deployment valkyrie-dev
 ```
@@ -121,10 +121,14 @@ Get the password with the below command.
 printf $(kubectl get secret cd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 ```
 
-Connect to the Jenkins console using the commands below. Make sure you don't have a running container `docker ps` and change **CONTAINER_ID** to your container id.
+Make sure you don't have a running container `docker ps` and change **CONTAINER_ID** to your container id.
 ```
 docker ps
 docker kill CONTAINER_ID
+```
+
+And connect to the Jenkins console using the commands below. 
+```
 export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/component=jenkins-master" -l "app.kubernetes.io/instance=cd" -o jsonpath="{.items[0].metadata.name}")
 kubectl port-forward $POD_NAME 8080:8080 >> /dev/null &
 ```
@@ -139,10 +143,9 @@ Setup your credentials to use **Google Service Account from metadata.**
 Create a pipeline job that points to your `*/master` branch on your source code.
 1. Jenkins > On left navigation, New Item
 2. Projecg name: valkyrie-app
-3. Multibranch Pipeline > Click OK > In the Branch Sources section, Add Source > Git
-4. Paste the HTTPS clone URL of your sample-app repo in Cloud Source Repositories. And replace **YOUR_PROJECT_ID** with your Project ID. `https://source.developers.google.com/p/YOUR_PROJECT_ID/r/valkyrie-app`
-5. Credentials > Select your credentials
-6. Under Scan Multibranch Pipeline Triggers section > Check Periodically if not otherwise run > Set Interval value to 1 minute > Click Save
+3. Pipeline > In Pipleline section, Pipeline script from SCM > In SCM field, Git
+4. Paste the HTTPS clone URL of your sample-app repo in Project Repository. And replace **YOUR_PROJECT_ID** with your Project ID. `https://source.developers.google.com/p/YOUR_PROJECT_ID/r/valkyrie-app`
+5. Credentials > Select your credentials > Click Save
 
 Make two changes to your files before you commit and build:
 - Edit `valkyrie-app/source/html.go` and change the two occurrences of green to orange.
@@ -159,10 +162,13 @@ Use git to:
 git config --global user.email "you@email.com"
 git config --global user.name "student"
 git add .
+git commit -m "green to orange"
 git push origin master
 ```
 
-When you are ready, manually trigger a build (the initial build will take some time, so just monitor the process). The build will replace the running containers with containers with different tags; you will see orange colored headings.
+Click **Build Now** in the left navigation.
+
+When you are ready, manually trigger a build (the initial build will take some time, so just monitor the process). The build will replace the running containers with containers with different tags; you will see orange colored headings. It will take a few minutes.
 
 
 ## Congratulations!
