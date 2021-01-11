@@ -258,27 +258,27 @@ GROUP BY date
 
 After run the above query, click on **EXPLORE DATA > Explore with Data Studio**.
 
-![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Insights-from-Data-with-BigQuery-1.png)
+![Screenshot](https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Insights-from-Data-with-BigQuery-1.png)
 
 **Get started** Data Studio and **AUTHORIZE** access to BigQuery.
 
-![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Insights-from-Data-with-BigQuery-2.png)
+![Screenshot](https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Insights-from-Data-with-BigQuery-2.png)
 
 In the Data Studio report, select **Add a chart > Time series**.
 
-![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Insights-from-Data-with-BigQuery-3.png)
+![Screenshot](https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Insights-from-Data-with-BigQuery-3.png)
 
 Add **country_cases** and **country_deaths** to the Metric field.
 
-![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Insights-from-Data-with-BigQuery-4.png)
+![Screenshot](https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Insights-from-Data-with-BigQuery-4.png)
 
 Then **Save** changes on the report.
 
-![Screenshot](https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Insights-from-Data-with-BigQuery-6.png)
+![Screenshot](https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Insights-from-Data-with-BigQuery-6.png)
 
 
 ## Congratulations!
-<img src="https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/BigQuery-Basics-for-Data-Analysts.png" height="150" /> <img src="https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Insights-from-Data-with-BigQuery.png" height="150" />
+<img src="https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/BigQuery-Basics-for-Data-Analysts.png" height="150" /> <img src="https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Insights-from-Data-with-BigQuery.png" height="150" />
 
 ### Finish your Quest
 This self-paced lab is part of the Qwiklabs [Insights from Data with BigQuery](https://google.qwiklabs.com/quests/123) Quest. A Quest is a series of related labs that form a learning path. Completing this Quest earns you the badge above, to recognize your achievement. You can make your badge public and link to them in your online resume or social media account. [Enroll in this Quest](https://google.qwiklabs.com/quests/123/enroll) and get immediate completion credit if you've taken this lab. [See other available Qwiklabs Quests.](https://google.qwiklabs.com/catalog)
