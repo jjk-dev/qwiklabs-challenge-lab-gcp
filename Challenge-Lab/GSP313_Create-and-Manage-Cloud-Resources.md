@@ -146,7 +146,7 @@ gcloud compute forwarding-rules list
 
 
 ## Congratulations!
-<img src="https://github.com/kkkkk317/qwiklabs-gcp/blob/main/img/Create-and-Manage-Cloud-Resources.png" height="150" />
+<img src="https://github.com/kkkkk317/qwiklabs-challenge-lab-gcp/blob/main/img/Create-and-Manage-Cloud-Resources.png" height="150" />
 
 ### Finish your Quest
 This self-paced lab is part of the [Create and Manage Cloud Resources](https://google.qwiklabs.com/quests/120) Quest. A Quest is a series of related labs that form a learning path. Completing this Quest earns you the badge above to recognize your achievement. You can make your badge (or badges) public and link to them in your online resume or social media account. Enroll in a Quest and get immediate completion credit for taking this lab. [See other available Qwiklabs Quests.](https://google.qwiklabs.com/catalog)
