@@ -109,9 +109,7 @@ You have used Dataprep to import data files and transformed them to gain views o
 3. Enter the Cloud Dataprep home page > In the left panel, select **GCS** > Click **Pencil icon** to edit folder path.
 4. Copy `gs://cloud-training/gsp323/runs.csv` in the textbox > Click **GO** > Click **Continue**
 
-Perform the following transforms to ensure the data is in the right state.
-
-Remove all rows with the state of **"FAILURE"**
+Perform the following transforms to ensure the data is in the right state. Remove all rows with the state of **"FAILURE"**
 1. Scroll right to the end and select **column10**.
 2. In the Details panel, do Right Click **FAILURE** on **Unique Values section**
 3. Select **Delete rows with selected values**
@@ -157,7 +155,7 @@ gcloud auth activate-service-account --key-file key.json
 
 You have the option to complete one of the tasks below:
 
-#### Google Cloud Speech API
+### Task 4-1: Google Cloud Speech API
 Use Google Cloud Speech API to analyze the audio file `gs://cloud-training/gsp323/task4.flac`. Once you have analyzed the file you can upload the resulting analysis to `gs://YOUR_PROJECT-marking/task4-gcs.result`.
 
 Create a JSON file called `request-gcs.json`.
@@ -165,7 +163,7 @@ Create a JSON file called `request-gcs.json`.
 nano request-gcs.json
 ```
 
-Save the following code with `Ctrl+x` > `Y` > `Enter`.
+Save the following code with `Ctrl + x` > `Y` > `Enter`.
 ```
 {
   "config": {
@@ -188,7 +186,7 @@ cat result-gcs.json
 gsutil cp result-gcs.json gs://$GOOGLE_CLOUD_PROJECT-marking/task4-gcs.result
 ```
 
-#### Cloud Natural Language API
+### Task 4-2: Cloud Natural Language API
 Use the Cloud Natural Language API to analyze the sentence from text about Odin. The text you need to analyze is "Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat." Once you have analyzed the text you can upload the resulting analysis to `gs://YOUR_PROJECT-marking/task4-cnl.result`.
 
 ```
@@ -204,7 +202,7 @@ Click the provided link and copy the verification code. Then put following code.
 gsutil cp result-cnl.json gs://$GOOGLE_CLOUD_PROJECT-marking/task4-cnl.result
 ```
 
-#### Google Video Intelligence
+### Task 4-3: Google Video Intelligence
 Use Google Video Intelligence and detect all text on the video `gs://spls/gsp154/video/train.mp4`. Once you have completed the processing of the video, pipe the output into a file and upload to `gs://YOUR_PROJECT-marking/task4-gvi.result`.
 
 Create a JSON file called `request-gvi.json`.
