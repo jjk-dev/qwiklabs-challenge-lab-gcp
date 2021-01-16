@@ -12,10 +12,35 @@ As a junior data engineer in Jooli Inc. and recently trained with Google Cloud a
 ### Task 1: Run a simple Dataflow job
 You have used Dataflow in the question to load data into BigQuery from Pub/Sub, now use the Dataflow batch template **Text Files on Cloud Storage to BigQuery** under "Process Data in Bulk (batch)" to transfer data from a Cloud Storage bucket (`gs://cloud-training/gsp323/lab.csv`). The following table has the values you need to correctly configure the Dataflow job.
 
-You will need to make sure you have:
-- Created a BigQuery dataset called **lab**
-- Replace **YOUR_PROJECT** with the lab project name
-- Created a Cloud Storage Bucket called **YOUR_PROJECT**
+In the Cloud Shell, create BigQuery dataset called **lab** and download the schema file.
+```
+bq mk lab
+
+gsutil cp gs://cloud-training/gsp323/lab.schema .
+cat lab.schema
+```
+
+Copy below schema.
+![Screenshot]()
+
+Go to **Navigation Menu > BigQuery**. Select **Project ID > lab** then click **CREATE TABLE**.
+1. In Source field, select **Google Cloud Storege** > put `gs://cloud-training/gsp323/lab.csv` on GCS bucket.
+2. Table name: `customers`
+3. Schema: Copy from `lab.schema`
+4. Click **Create Table**.
+
+![Screenshot]()
+
+Create a Cloud Storage Bucket called **YOUR_PROJECT** and change it to your **Project ID**.
+```
+gsutil mb gs://YOUR_PROJECT/
+```
+
+Go to **Navigation Menu > Dataflow**.
+1. Jobs > CREATE JOB FROM TEMPLATE
+2. Job name: `lab-flow`
+3. In Dataflow template section, select **Text Files on Cloud Storage to BigQuery** under **Process Data in Bulk (batch)**.
+4. Enter the values on the parameters with the below table. Must replace **YOUR_PROJECT** with the Project ID.
 
 |Field|Value|
 |---|---|
@@ -27,23 +52,25 @@ You will need to make sure you have:
 |Temporary BigQuery directory|`gs://YOUR_PROJECT/bigquery_temp`|
 |Temporary location|`gs://YOUR_PROJECT/temp`|
 
-```
-bq mk lab
+![Screenshot]()
 
-gsuitl cp gs://cloud-training/gsp323/lab.schema .
-cat lab.schema
-```
-```
-gsuitl cp gs://cloud-training/gsp323/lab.csv .
-cat lab.csv
-```
+5. Click **RUN JOB**.
 
 ### Task 2: Run a simple Dataproc job
 You have used Dataproc in the quest, now you must run another example Spark job using Dataproc.
 
-Before you run the job, log into one of the cluster nodes and copy the /data.txt file into hdfs (use the command `hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt`).
+Create Dataproc cluster named `lab-cluster`.
+```
+gcloud config set dataproc/region us-central1
+gcloud dataproc clusters create lab-cluster
+```
 
-Run a Dataproc job using the values below.
+Before you run the job, log into one of the cluster nodes and copy the /data.txt file into hdfs.
+1. Navigation Menu > Dataproc
+2. Click the name of cluster > VM INSTNACES tab
+3. Click **SSH** and run `hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt` in the SSH window.
+
+To run a Dataproc job using the values below, run the following command in Cloud Shell.
 
 |Field|Value|
 |---|---|
@@ -54,11 +81,36 @@ Run a Dataproc job using the values below.
 |Arguments|`/data.txt`|
 
 ```
-
+gcloud dataproc jobs submit spark --cluster lab-cluster \
+  --class org.apache.spark.examples.SparkPageRank \
+  --jars file:///usr/lib/spark/examples/jars/spark-examples.jar \
+  -- /data.txt
 ```
 
 ### Task 3: Run a simple Dataprep job
 You have used Dataprep to import data files and transformed them to gain views of the data. Use Dataprep to import one CSV file (described below) that holds data of lab executions.
+1. Navigation Menu > Dataprep
+2. Accpet all agreements.
+3. Enter the Cloud Dataprep home page > In the left panel, select **GCS** > Click **Pencil icon** to edit folder path.
+4. Copy `gs://cloud-training/gsp323/runs.csv` in the textbox > Click **GO** > Click **Continue**
+
+Perform the following transforms to ensure the data is in the right state.
+
+Remove all rows with the state of **"FAILURE"**
+1. Scroll right to the end and select **column10**.
+2. In the Details panel, do Right Click **FAILURE** on **Unique Values section**
+3. Select **Delete rows with selected values**
+
+![Screenshot]()
+
+Remove all rows with 0 or 0.0 as a score (Use the regex pattern **/(^0$|^0\.0$)/**).
+1. Select **column9**.
+2. Click three dot at the top > Choose **Filter rows > On column value > Contains**
+3. On Pattern to match field, put **/(^0$|^0\.0$)/** > Click **Add**
+
+![Screenshot]()
+
+Rename the columns with the names.
 
 `gs://cloud-training/gsp323/runs.csv` structure:
 |runid|userid|labid|lab_title|start|end|time|score|state|
@@ -67,14 +119,17 @@ You have used Dataprep to import data files and transformed them to gain views o
 |5557|116|165|Lab 165|2020-04-09 16:44:45|2020-04-09 18:13:58|5353|60.5|SUCCESS|
 |5558|969|31|Lab 31|2020-04-09 17:59:01|2020-04-09 18:02:09|188|0|FAILURE|
 
-Perform the following transforms to ensure the data is in the right state:
-- Remove all rows with the state of **"FAILURE"**
-- Remove all rows with 0 or 0.0 as a score (Use the regex pattern **/(^0$|^0\.0$)/**)
-- Label columns with the names above
+- runid
+- userid
+- labid
+- lab_title
+- start
+- end
+- time
+- score
+- state
 
-```
-
-```
+Click **Run > Run**.
 
 ### Task 4: Perform one of three Google machine learning backed API tasks
 For the options below **YOUR_PROJECT** must be replaced with your lab project name.
