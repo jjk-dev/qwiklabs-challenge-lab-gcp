@@ -95,6 +95,7 @@ There are 3 services that need to be broken out into their own containers. Since
 
 Below is the set of services which need to be containerized. Navigate to the source roots mentioned below, and upload the artifacts which are created to the Google Container Registry with the metadata indicated.
 
+|Field|Value|
 |---|---|
 |**Orders Microservice**|Service root folder: `~/monolith-to-microservices/microservices/src/orders`, GCR Repo: `gcr.io/${GOOGLE_CLOUD_PROJECT}`, Image name: orders, Image version: 1.0.0|
 |**Products Microservice**|Service root folder: `~/monolith-to-microservices/microservices/src/products`, GCR Repo: `gcr.io/${GOOGLE_CLOUD_PROJECT}`, Image name: products, Image version: 1.0.0|
@@ -114,6 +115,8 @@ gcloud builds submit --tag gcr.io/${GOOGLE_CLOUD_PROJECT}/products:1.0.0 .
 Deploy these new containers following the same process that you followed for the "fancytest" monolith. Note that these services will be listening on different ports, so make note of the port mappings in the table below.
 
 Create and expose your deployments as follows:
+
+|Field|Value|
 |---|---|
 |**Orders Microservice**|Cluster name: fancy-cluster, Container name: orders, Container version: 1.0.0, Application port: 8081, Externally accessible port: 80|
 |**Products Microservice**|Cluster name: fancy-cluster, Container name: products, Container version: 1.0.0, Application port: 8082, Externally accessible port: 80|
