@@ -30,7 +30,7 @@ Set **Location: nam5** then click **CREATE DATABASE** button.
 ### Task 2: Populate the Database
 Populate the database using test data.
 
-Use the sample code from **pet-theory/lab06/firebase-import-csv/solution**. And to import CSV, use the node **index.js**.
+Use the sample code from `pet-theory/lab06/firebase-import-csv/solution`. And to import CSV, use the node `index.js`.
 ```
 cd ~/pet-theory/lab06/firebase-import-csv/solution
 npm install
@@ -39,10 +39,10 @@ node index.js netflix_titles_original.csv
 
 ### Task 3: Create a REST API
 Create an example REST API.
-- Access **pet-theory/lab06/firebase-rest-api/solution-01**
+- Access `pet-theory/lab06/firebase-rest-api/solution-01`
 - Build and Deploy the code to Google Container Registry
 - Deploy the image as a Cloud Run Service
-- **curl -X GET $SERVICE_URL** should respond with:
+- `curl -X GET $SERVICE_URL` should respond with:
 ```{"status":"Netflix Dataset! Make a query."}```
 
 |**Field**|**Value**|
@@ -64,11 +64,11 @@ curl -X GET $SERVICE_URL
 
 ### Task 4: Firestore API access
 Deploy an updated revision of the code to access the Firestore DB.
-- Access **pet-theory/lab06/firebase-rest-api/solution-02**
+- Access `pet-theory/lab06/firebase-rest-api/solution-02`
 - Build the updated application
 - Use Cloud Build to tag and deploy image revision to Container Registry
 - Deploy the new image as Cloud Run service
-- **curl -X GET $SERVICE_URL/2019** should respond with json dataset
+- `curl -X GET $SERVICE_URL/2019` should respond with json dataset
 
 |**Field**|**Value**|
 |Container Registry Image|rest-api:0.2|
@@ -84,7 +84,7 @@ curl -X GET $SERVICE_URL/2019
 
 ### Task 5: Deploy the Staging Frontend
 Deploy the Staging Frontend.
-- Access **pet-theory/lab06/firebase-frontend**
+- Access `pet-theory/lab06/firebase-frontend`
 - Build the frontend staging application
 - Use Cloud Build to tag and deploy image revision to Container Registry
 - Deploy the new image as Cloud Run service
@@ -107,8 +107,8 @@ Access the Frontend Service URL.
 
 ### Task 6: Deploy the Production Frontend
 Update the Staging Frontend to use the Firestore database.
-- Access **pet-theory/lab06/firebase-frontend/public**
-- Update the frontend application i.e. **app.js** to use the REST API
+- Access `pet-theory/lab06/firebase-frontend/public`
+- Update the frontend application i.e. `app.js` to use the REST API
 - Don't forget to append the year to the SERVICE_URL
 - Use Cloud Build to tag and deploy image revision to Container Registry
 - Deploy the new image as Cloud Run service
