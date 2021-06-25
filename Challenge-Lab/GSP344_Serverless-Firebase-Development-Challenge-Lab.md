@@ -3,7 +3,7 @@
 ## Challenge scenario
 In this lab you will create a frontend solution using a Rest API and Firestore database. Cloud Firestore is a NoSQL document database that is part of the Firebase platform where you can store, sync, and query data for your mobile and web apps at scale. Lab content is based on resolving a real world scenario through the use of Google Cloud serverless infrastructure.
 
-![Screenshot](https://github.com/jj-dev/qwiklabs-challenge-lab-gcp/blob/main/img/Serverless-Firebase-Development-1.png)
+![Screenshot](https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/img/Serverless-Firebase-Development-1.png)
 
 ### Task 1: Create a Firestore database
 Create a Firestore Database in Google Cloud. The high level architecture diagram below summarizes the general architecture.
@@ -14,9 +14,15 @@ Create a Firestore Database in Google Cloud. The high level architecture diagram
 
 Provision the environment:
 ```
+gcloud config set run/region us-central
 gcloud config set project $(gcloud projects list --format='value(PROJECT_ID)' --filter='qwiklabs-gcp')
 git clone https://github.com/rosera/pet-theory.git
 ```
+Go to Firestore in the left navigation. Select Naive Mode and set **Location: nam5**. Then click **CREATE DATABASE** button.
+
+![Screenshot](https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/img/Serverless-Firebase-Development-2.png)
+![Screenshot](https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/img/Serverless-Firebase-Development-3.png)
+
 
 ### Task 2: Populate the Database
 Populate the database using test data.
@@ -47,9 +53,9 @@ gcloud builds submit --tag=gcr.io/$GOOGLE_CLOUD_PROJECT/rest-api:0.1
 gcloud run deploy netflix-dataset-service --image gcr.io/$GOOGLE_CLOUD_PROJECT/rest-api:0.1 --allow-unauthenticated
 ```
 
-Go to cloud run and click netflix-dataset-service then copy the url.
+When deploying is completed, copy netflix-dataset-service's service url.
 ```
-SERVICE_URL=[CHANGE TO YOUR netflix-dataset-service URL]
+SERVICE_URL=[CHANGE TO YOUR SERVICE URL]
 curl -X GET $SERVICE_URL
 ```
 
@@ -89,11 +95,11 @@ Deploy the Staging Frontend.
 ```
 cd ~/pet-theory/lab06/firebase-frontend
 gcloud builds submit --tag=gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-staging:0.1
-gcloud run deploy frontend-staging-service --image gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-staging:0.1
+gcloud run deploy frontend-staging-service --image gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-staging:0.1 --allow-unauthenticated
 ```
 
 Access the Frontend Service URL.
-
+![Screenshot](https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/img/Serverless-Firebase-Development-4.png)
 
 ### Task 6: Deploy the Production Frontend
 Update the Staging Frontend to use the Firestore database.
@@ -109,16 +115,20 @@ cd ~/pet-theory/lab06/firebase-frontend/public
 nano app.js
 ```
 
-In line 3 **const REST_API_SERVICE**, insert your netflix-dataset-service url like below.
+In line 4 **const REST_API_SERVICE**, erase **//** and modify to your netflix-dataset-service url like below. Save the following code with `Ctrl + x` > `Y` > `Enter`.
+```
+const REST_API_SERVICE = "https://netflix-dataset-service-js3gnnsjfq-uc.a.run.app/2020" 
+```
 
 Then run build and deploy as a production environment in Cloud shell.
 ```
+cd ~/pet-theory/lab06/firebase-frontend
 gcloud builds submit --tag=gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-production:0.1
-gcloud run deploy frontend-production-service --image gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-production:0.1
+gcloud run deploy frontend-production-service --image=gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-production:0.1 --allow-unauthenticated
 ```
 
 ## Congratulations!
-<img src="https://github.com/jj-dev/qwiklabs-challenge-lab-gcp/blob/main/img/Serverless-Firebase-Development.png" height="150" />
+<img src="https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/img/Serverless-Firebase-Development.png" height="150" />
 
 ### Finish your Quest
 This self-paced lab is part of the Serverless Firebase Development skill badge quest. Completing this skill badge quest earns you the badge above, to recognize your achievement. Share your badge on your resume and social platforms, and announce your accomplishment using #GoogleCloudBadge.
