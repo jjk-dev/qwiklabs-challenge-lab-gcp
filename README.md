@@ -10,5 +10,5 @@
 - Perform Foundational Data, ML, and AI Tasks in Google Cloud: Challenge Lab ( [Qwiklabs](https://www.qwiklabs.com/focuses/11044?parent=catalog) | [Solution](https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/Challenge-Lab/GSP323_Perform-Foundational-Data-ML-and-AI-Tasks-in-Google-Cloud.md) )
 - Build and Optimize Data Warehouses with BigQuery: Challenge Lab ( [Qwiklabs](https://www.qwiklabs.com/focuses/14341?parent=catalog) | [Solution](https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/Challenge-Lab/GSP340_Build-and-Optimize-Data-Warehouses-with-BigQuery-Challenge-Lab.md) )
 - Insights from Data with BigQuery: Challenge Lab ( [Qwiklabs](https://www.qwiklabs.com/focuses/11988?parent=catalog) | [Solution](https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/Challenge-Lab/GSP787_Insights-from-Data-with-BigQuery-Challenge-Lab.md) )
+- Serverless Firebase Development: Challenge Lab ( [Qwiklabs](https://www.qwiklabs.com/focuses/14677?parent=catalog) | [Solution](https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/Challenge-Lab/GSP344_Serverless-Firebase-Development-Challenge-Lab.md) )
 
-\\
