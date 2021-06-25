@@ -18,9 +18,12 @@ gcloud config set run/region us-central
 gcloud config set project $(gcloud projects list --format='value(PROJECT_ID)' --filter='qwiklabs-gcp')
 git clone https://github.com/rosera/pet-theory.git
 ```
-Go to Firestore in the left navigation. Select Naive Mode and set **Location: nam5**. Then click **CREATE DATABASE** button.
+Go to Firestore in the left navigation. Select **Naive Mode**.
 
 ![Screenshot](https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/img/Serverless-Firebase-Development-2.png)
+
+Set **Location: nam5** then click **CREATE DATABASE** button.
+
 ![Screenshot](https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/img/Serverless-Firebase-Development-3.png)
 
 
@@ -99,6 +102,7 @@ gcloud run deploy frontend-staging-service --image gcr.io/$GOOGLE_CLOUD_PROJECT/
 ```
 
 Access the Frontend Service URL.
+
 ![Screenshot](https://github.com/jjk-dev/qwiklabs-challenge-lab-gcp/blob/main/img/Serverless-Firebase-Development-4.png)
 
 ### Task 6: Deploy the Production Frontend
